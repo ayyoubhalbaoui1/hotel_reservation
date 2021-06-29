@@ -56,8 +56,8 @@ export default function Commands () {
                     <td>{i._id}</td>
                     <td>{i.name}</td>
                     <td>{i.email}</td>
-                    <td>{i.checkIn}</td>
-                    <td>{i.checkOut}</td>
+                    <td>{i.startDate}</td>
+                    <td>{i.endDate}</td>
                     <td>
                       <button onClick={() => deleteCommand(i._id)} type="button" className="btn btn-danger">Delete</button></td>
                   </tr>

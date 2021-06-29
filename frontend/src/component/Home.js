@@ -6,8 +6,8 @@ export default function Home () {
     const [hotels, setHotels] = useState([])
     const [fullname, setFullName] = useState("")
     const [email, setEmail] = useState("")
-    const [checkIn, setCheckIn] = useState("")
-    const [checkOut, setCheckOut] = useState("")
+    const [startDate, setStartDate]  = useState("")
+    const [endDate, setEndDate] = useState("")
 
     // Get hotel data :
     const getHotelsData = () => {
@@ -20,7 +20,7 @@ export default function Home () {
 
     // Add a reservations 
     const commandHotel = () => {
-        fetch("http://localhost:8080/reservation", {
+        fetch("http://localhost:8080/booking", {
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json'
@@ -28,8 +28,8 @@ export default function Home () {
             body : JSON.stringify({
                 name : fullname,
                 email : email,
-                checkIn : checkIn,
-                checkOut : checkOut
+                startDate : startDate,
+                endDate : endDate
             })
         }).then(res => {
             return res.json()
@@ -56,7 +56,7 @@ export default function Home () {
                                     <img src={i.image} />
                                     <h5 class="item-card-title mt-3 mb-3">{i.name}</h5>
                                         <p class="card-text">{i.desc}</p> 
-                                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">command Now</button>
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">booking now</button>
                                 </div>
                             </div>
                         ))}
@@ -83,11 +83,11 @@ export default function Home () {
                                     <div className="form-group">
                                     <label>Start Date:</label>
 
-                                        <input onChange={event => setCheckIn(event.target.value)} className="form-control" type="date" />
+                                        <input onChange={event => setStartDate(event.target.value)} className="form-control" type="date" />
                                     </div>
                                     <div className="form-group">
                                     <label>End Date:</label>
-                                        <input onChange={event => setCheckOut(event.target.value)} className="form-control" type="date" />
+                                        <input onChange={event => setEndDate(event.target.value)} className="form-control" type="date" />
                                     </div>
                                 </div>
                                 <div class="modal-footer">

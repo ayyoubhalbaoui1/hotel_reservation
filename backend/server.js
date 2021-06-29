@@ -3,10 +3,10 @@ const cors = require('cors')
 const app = express()
 const hotels = require('./hotels.json')
 const mongoose = require('mongoose')
-const Reservation = require('./models/reservation')
+const Booking = require('./models/booking')
 
 // connect to database with mongodb:
-mongoose.connect("mongodb://localhost/db", {
+mongoose.connect("mongodb://localhost/hotelDb", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -14,32 +14,32 @@ mongoose.connect("mongodb://localhost/db", {
 app.use(express.json())
 app.use(cors())
 
-// get all hotels :
+// GET HOTELS
 app.get('/hotels', (req, res) => {
     res.json(hotels)
 })
 
-// post new reservation :
-app.post('/reservation', (req, res) => {
-    const command = new Reservation({
+// ADD NEW RESERVATION
+app.post('/booking', (req, res) => {
+    const command = new Booking({
         name : req.body.name,
         email : req.body.email,
-        checkIn : req.body.checkIn,
-        checkOut : req.body.checkOut
+        startDate : req.body.startDate,
+        endDate : req.body.endDate
     })
     const newCommand = command.save()
     res.json(newCommand)
 })
 
-// get all reservations :
+//GET RESERVATIONS
 app.get('/commands', async (req, res) => {
-    const commands = await Reservation.find()
+    const commands = await Booking.find()
     res.json(commands)
 })
 
-// delete Command By ID :
+// DELETE COMMANDS
 app.delete('/delete/:id', (req, res) => {
-    Reservation.findByIdAndDelete(req.params.id).then(() => {
+    Booking.findByIdAndDelete(req.params.id).then(() => {
         res.json({message : "Command Deleted"})
     })
 })
