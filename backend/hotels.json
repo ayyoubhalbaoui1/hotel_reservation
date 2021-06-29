@@ -1,21 +1,50 @@
 [
     {
-        "id": 1,
-        "name":"hotel 1",
-        "descrption": "this is hotel 1 this is hotel 1 this is hotel 1",
-        "image": "images/legacy-hotel-at-img-academy.jpg"
+        "id" : 1,
+        "name" : "Hotel 1",
+        "desc" : "Best Hotels in Manchester from Your Favourite Sites.",
+        "image" : "images/571710.jpg"
     },
     {
-        "id": 2,
-        "name":"hotel 2",
-        "descrption": "this is hotel 2 this is hotel 2 this is hotel 2",
-        "image": "images/2.jpg"
+        "id" : 2,
+        "name" : "Hotel 2",
+        "desc" : "Best Hotels in Manchester from Your Favourite Sites.",
+        "image" : "images/campagne-de-recrutement-savoy-le-grand-hotel-marrakech-600x315.jpg"
     },
     {
-        "id": 3,
-        "name":"hotel 3",
-        "descrption": "this is 3 this is 3 this is 3",
-        "image": "images/46842174.jpg"
+        "id" : 3,
+        "name" : "Hotel 3",
+        "desc" : "Best Hotels in Manchester from Your Favourite Sites.",
+        "image" : "images/DMWFqzAX4AAxaQm.jpg"
+    },
+    {
+        "id" : 4,
+        "name" : "Hotel 4",
+        "desc" : "Best Hotels in Manchester from Your Favourite Sites.",
+        "image" : "images/savoy-le-grand-hotel_VIRMEL1435416115471_pghd.jpg"
+    },
+    {
+        "id" : 5,
+        "name" : "Hotel 5",
+        "desc" : "Best Hotels in Manchester from Your Favourite Sites.",
+        "image" : "images/savoy-le-grand-hotel.jpg"
+    },
+    {
+        "id" : 6,
+        "name" : "Hotel 6",
+        "desc" : "Best Hotels in Manchester from Your Favourite Sites.",
+        "image" : "images/DMWFqzAX4AAxaQm.jpg"
+    },
+    {
+        "id" : 6,
+        "name" : "Hotel 6",
+        "desc" : "Best Hotels in Manchester from Your Favourite Sites.",
+        "image" : "images/DMWFqzAX4AAxaQm.jpg"
+    }, 
+    {
+        "id" : 6,
+        "name" : "Hotel 6",
+        "desc" : "Best Hotels in Manchester from Your Favourite Sites.",
+        "image" : "images/DMWFqzAX4AAxaQm.jpg"
     }
-
 ]

@@ -1,38 +1,47 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const hotels = require('./hotels.json')
-const fs = require('fs')
-const cors = require('cors')
+const mongoose = require('mongoose')
+const Reservation = require('./models/reservation')
 
-const reservations = require('./reservations.json')
+// connect to database with mongodb:
+mongoose.connect("mongodb://localhost/db", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
-// Middleware
 app.use(express.json())
 app.use(cors())
 
-app.get('/hotels', (req,res) => {
-    res.status(200).json(hotels)
+// get all hotels :
+app.get('/hotels', (req, res) => {
+    res.json(hotels)
 })
 
-app.post('/reservations', (req,res) => {
-    reservations.push(req.body)
-    console.log(JSON.parse(req.body));
-    fs.writeFile(reservations, JSON.parse(req.body), (err, data) => {
-        if (err) return console.log(err);
-        console.log(data);
+// post new reservation :
+app.post('/reservation', (req, res) => {
+    const command = new Reservation({
+        name : req.body.name,
+        email : req.body.email,
+        checkIn : req.body.checkIn,
+        checkOut : req.body.checkOut
     })
-    res.status(200).json(reservations)
+    const newCommand = command.save()
+    res.json(newCommand)
 })
 
-
-
-app.delete('/reservations/:id', (req,res) => {
-    const id = parseInt(req.params.id)
-    let reservation = reservations.find(reservation => reservation.id === id)
-    reservations.splice(reservations.indexOf(reservation),1)
-    res.status(200).json(reservations)
+// get all reservations :
+app.get('/commands', async (req, res) => {
+    const commands = await Reservation.find()
+    res.json(commands)
 })
 
-app.listen(8080, () => {
-    console.log("App is running on port 8080")
+// delete Command By ID :
+app.delete('/delete/:id', (req, res) => {
+    Reservation.findByIdAndDelete(req.params.id).then(() => {
+        res.json({message : "Command Deleted"})
+    })
 })
+
+app.listen(8080, () => console.log("Server Running on port 8080"))
