@@ -11,7 +11,7 @@ const reservationSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
-    start : {
+    checkIn : {
         type : String,
         required : true,
     },

@@ -43,10 +43,11 @@ export default function Commands () {
               <thead class="thead-light">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Full name</th>
-                  <th scope="col">Phone</th>
-                  <th scope="col">CIN</th>
-                  <th scope="col">Actions</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">End Date</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,6 +55,7 @@ export default function Commands () {
                   <tr key={i.id}>
                     <td>{i._id}</td>
                     <td>{i.name}</td>
+                    <td>{i.email}</td>
                     <td>{i.checkIn}</td>
                     <td>{i.checkOut}</td>
                     <td>
