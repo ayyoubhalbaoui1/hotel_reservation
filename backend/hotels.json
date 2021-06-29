@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "name":"hotel 1",
+        "descrption": "this is hotel 1 this is hotel 1 this is hotel 1",
+        "image": "images/legacy-hotel-at-img-academy.jpg"
+    },
+    {
+        "id": 2,
+        "name":"hotel 2",
+        "descrption": "this is hotel 2 this is hotel 2 this is hotel 2",
+        "image": "images/2.jpg"
+    },
+    {
+        "id": 3,
+        "name":"hotel 3",
+        "descrption": "this is 3 this is 3 this is 3",
+        "image": "images/46842174.jpg"
+    }
+
+]
