@@ -3,15 +3,14 @@ import NavBar from "./NavBar";
 
 export default function Home () {
 
-    // inti states :
     const [hotels, setHotels] = useState([])
     const [fullname, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [checkIn, setCheckIn] = useState("")
     const [checkOut, setCheckOut] = useState("")
 
-    // render hotel data :
-    const renderHotelsData = () => {
+    // Get hotel data :
+    const getHotelsData = () => {
         fetch("http://localhost:8080/hotels").then(res => {
             return res.json()
         }).then(data => {
@@ -19,7 +18,7 @@ export default function Home () {
         })
     }
 
-    // COMMAND an RESERVATION : 
+    // Add a reservations 
     const commandHotel = () => {
         fetch("http://localhost:8080/reservation", {
             method : 'POST',
@@ -38,33 +37,32 @@ export default function Home () {
     }
 
     useEffect(() => {
-        renderHotelsData()
+        getHotelsData()
     })
 
     return(
-        <div>
-            <NavBar />
+        
             <div className="App"> 
+                            <NavBar />
+
                 <div className="auth-wrapper">
-                <div className="auth-inner">
-                <div className="row">
                     
-                        
+                <div className="auth-inner">
+
+                <div className="row">
                         {hotels.map((i) => (
                             <div class="col-md-3 col-sm-6 item">
                                 <div class="card item-card card-block ">
                                     <img src={i.image} />
-                                   
                                     <h5 class="item-card-title mt-3 mb-3">{i.name}</h5>
-                                        {/* <p>{i.desc}</p> */}
                                         <p class="card-text">{i.desc}</p> 
- 
                                         <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">command Now</button>
-
                                 </div>
                             </div>
                         ))}
-                        {/* start modal */}
+
+                    {/* ---------------PopUp--------------------- */}
+
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -94,41 +92,15 @@ export default function Home () {
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal1" onClick={commandHotel}>Onder Now</button>
+                                   
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal1" onClick={commandHotel}>Reserve Here</button>
                                 </div>
                                 </div>
                             </div>
                         </div>
-                        {/* end of modal */}
-                        {/* start of second modal */}
-                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Command An Hotel</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div className="panel panel-success">
-                                        <div className="panel-heading">
-                                            <h2>Success</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        {/* end of second modal */}
-                    
+                    {/* -------------PopUp----------- */}
                 </div>
             </div>
-        </div>
         </div>
         </div>
     )

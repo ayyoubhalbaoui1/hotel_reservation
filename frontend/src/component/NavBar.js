@@ -1,3 +1,5 @@
+import React from 'react';
+
 
 export default function NavBar () {
     return(
@@ -17,5 +19,6 @@ export default function NavBar () {
             </div>
         </nav>
         
+       
     )
 }
