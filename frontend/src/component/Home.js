@@ -56,7 +56,8 @@ export default function Home () {
                                     <img src={i.image} />
                                     <h5 class="item-card-title mt-3 mb-3">{i.name}</h5>
                                         <p class="card-text">{i.desc}</p> 
-                                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">booking now</button>
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Booking now</button>
+                                        
                                 </div>
                             </div>
                         ))}
